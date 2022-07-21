@@ -15,6 +15,12 @@ let weather = {
        document.querySelector(".city").innerText = name ;
        document.querySelector(".description").innerText = description;
        document.querySelector(".temperature").innerText = temp + " °C ";
-    }
-
+    },
+    search: function () {
+        this.fetchWeather(document.querySelector(".search-city").value);
+      },
 };
+
+document.querySelector(".search button").addEventListener("click", function () {
+    weather.search();
+  });
