@@ -11,10 +11,14 @@ let weather = {
        const name = data.name;
        const description = data.weather[0].description;
        const temp = data.main.temp;
-       console.log(name,description, temp)
+       const feelsLike = data.main.feels_like;
+       console.log(name, description, temp, feelsLike)
        document.querySelector(".city").innerText = name ;
-       document.querySelector(".description").innerText = description;
-       document.querySelector(".temperature").innerText = temp + " °C ";
+       document.querySelector(".description").innerText = "Weather Desciption: " + description;
+       document.querySelector(".temperature").innerText = "Temperature: " + temp + " °C ";
+       document.querySelector(".feels_like").innerText = "Feels Like: " + feelsLike + " °C ";
+       document.querySelector(".weather").classList.remove("loading");
+
     },
     search: function () {
         this.fetchWeather(document.querySelector(".search-city").value);

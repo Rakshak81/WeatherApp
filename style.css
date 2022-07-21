@@ -58,3 +58,8 @@ body {
     background: #7c7c7c6b;
   }
   
+  .weather.loading {
+    visibility: hidden;
+    max-height: 20px;
+    position: relative;
+  }
