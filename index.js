@@ -24,3 +24,9 @@ let weather = {
 document.querySelector(".search button").addEventListener("click", function () {
     weather.search();
   });
+
+  document.querySelector(".search-city").addEventListener("keyup", function (event) {
+    if (event.key == "Enter") {
+        weather.search();
+      }
+  });
