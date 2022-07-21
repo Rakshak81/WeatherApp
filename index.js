@@ -4,7 +4,13 @@ let weather = {
         fetch(
         "https://api.openweathermap.org/data/2.5/weather?q=" + city + "&units=metric&appid=" + this.apikey
         )
-        .then((response) => response.json())
+        .then((response) => {
+            if (!response.ok) {
+                alert("Invalid Entry");
+          throw new Error("Invalid Entry");
+            }
+           return response.json();
+        })
         .then((data) => this.displayWeather(data));
     },
     displayWeather: function(data) {
@@ -18,6 +24,8 @@ let weather = {
        document.querySelector(".temperature").innerText = "Temperature: " + temp + " °C ";
        document.querySelector(".feels_like").innerText = "Feels Like: " + feelsLike + " °C ";
        document.querySelector(".weather").classList.remove("loading");
+       document.body.style.backgroundImage =
+       "url('https://source.unsplash.com/1600x900/?" + name + "')";
 
     },
     search: function () {
